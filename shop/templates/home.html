@@ -16,9 +16,10 @@
         <a href="{% url 'signup' %}">Signup</a>
     {% endif %}
     <br>
-    {% for i in 'aaaaaaaa' %}
-        <a href=""><img src="{% static 'images/cube-agree-c-62-sl.png' %}" alt=""></a>
-        <h2>Bike name</h2>
-        <p>Price : $1099</p>
+    <br>
+    {% for bike in bikes %}
+        <a href=""><img src="{{ bike.image.url }}" alt="{{ bike.name }}"></a>
+        <h2>{{ bike.name }}</h2>
+        <p>Price : ${{ bike.price }}</p>
     {% endfor %}
 {% endblock %}

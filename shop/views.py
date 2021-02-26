@@ -4,10 +4,18 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import authenticate, login, logout
 
 from .forms import SignUpForm
+from .models import Category, Bike
 
 # Create your views here.
-def home(request):
-    return render(request, 'home.html')
+def home(request, category_slug=None):
+    category_page = None
+    bikes = None
+    if category_slug != None:
+        category_page = get_object_or_404(Category, slug=category_slug)
+        bikes = Bike.objects.filter(category=category_page)
+    else:
+        bikes = Bike.objects.all()
+    return render(request, 'home.html', {'category': category_page, 'bikes': bikes})
 
 def about(request):
     return render(request, 'about.html')
