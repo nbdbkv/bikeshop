@@ -1,4 +1,5 @@
 {% extends '_base.html' %}
+{% load static %}
 
 {% block title%}Home{% endblock %}
 
@@ -16,4 +17,10 @@
         <a href="{% url 'login' %}">Login</a>
         <a href="{% url 'signup' %}">Signup</a>
     {% endif %}
+    <br>
+    {% for i in 'aaaaaaaa' %}
+        <a href=""><img src="{% static 'images/cube-agree-c-62-sl.png' %}" alt=""></a>
+        <h2>Bike name</h2>
+        <p>Price : $1099</p>
+    {% endfor %}
 {% endblock %}
