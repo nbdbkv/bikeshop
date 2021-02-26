@@ -4,8 +4,6 @@
 {% block title%}Home{% endblock %}
 
 {% block content %}
-    <a href="{% url 'home' %}">Home</a>
-    <br>
     <a href="{% url 'about' %}">About</a>
     <br>
     {% if user.is_authenticated %}
