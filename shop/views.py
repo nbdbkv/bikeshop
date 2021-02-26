@@ -7,19 +7,6 @@ from .forms import SignUpForm
 from .models import Category, Bike
 
 # Create your views here.
-def home(request, category_slug=None):
-    category_page = None
-    bikes = None
-    if category_slug != None:
-        category_page = get_object_or_404(Category, slug=category_slug)
-        bikes = Bike.objects.filter(category=category_page)
-    else:
-        bikes = Bike.objects.all()
-    return render(request, 'home.html', {'category': category_page, 'bikes': bikes})
-
-def about(request):
-    return render(request, 'about.html')
-
 def signupView(request):
     if request.method == 'POST':
         form = SignUpForm(request.POST)
@@ -54,5 +41,22 @@ def logoutView(request):
     logout(request)
     return redirect('home')
 
-def detail(request):
-    return render(request, 'detail.html')
+def home(request, category_slug=None):
+    category_page = None
+    bikes = None
+    if category_slug != None:
+        category_page = get_object_or_404(Category, slug=category_slug)
+        bikes = Bike.objects.filter(category=category_page)
+    else:
+        bikes = Bike.objects.all()
+    return render(request, 'home.html', {'category': category_page, 'bikes': bikes})
+
+def about(request):
+    return render(request, 'about.html')
+    
+def detail(request, category_slug, bike_slug):
+    try:
+        bike = Bike.objects.get(category__slug=category_slug, slug=bike_slug)
+    except Exception as e:
+        raise e
+    return render(request, 'detail.html', {'bike': bike})

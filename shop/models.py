@@ -25,5 +25,8 @@ class Bike(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     image = models.ImageField(upload_to='bike/', blank=True)
 
+    def get_url(self):
+        return reverse('bike_detail', args=[self.category.slug, self.slug])
+
     def __str__(self):
         return self.name
