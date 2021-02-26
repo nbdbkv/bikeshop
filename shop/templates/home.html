@@ -16,7 +16,13 @@
         <a href="{% url 'signup' %}">Signup</a>
     {% endif %}
     <br>
-    <br>
+    <p>Categories :</p>
+    <ul>
+        <li><a href="{% url 'home' %}">All bikes</a></li>
+        {% for category in links %}
+            <li><a href="{{ category.get_url }}">{{ category.name }}</a></li>
+        {% endfor %}
+    </ul>
     {% for bike in bikes %}
         <a href=""><img src="{{ bike.image.url }}" alt="{{ bike.name }}"></a>
         <h2>{{ bike.name }}</h2>
