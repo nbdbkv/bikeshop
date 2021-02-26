@@ -1,0 +1,33 @@
+{% extends '_base.html' %}
+
+{% block title%}About{% endblock %}
+
+{% block content %}
+    <a href="{% url 'home' %}">Home</a>
+    <h2>Мини интернет магазин</h2>
+    <h4>Базовый функционал и верстку без стилей, дизайн произвольный</h4>
+    <ul>
+        <li>Регистрация (без подтверждения)</li>
+        <li>Авторизация</li>
+        <li>Изменение профиля</li>
+        <li>Карточки товаров / страница товара</li>
+        <li>Категории товаров</li>
+    </ul>
+    <p>Добавить README по поднятию проекта локально</p>
+    <br>
+    <h4>Общие требования:</h4>
+    <ul>
+        <li>Django 2.2+</li>
+        <li>Python 3.6+</li>
+        <li>Postgres</li>
+        <li>Использовать VCS git и залить в репозиторий (github/gitlab/bitbucket)</li>
+        <li>Время выполнения до 6 дней</li>
+    </ul>
+    <br>
+    <h4>Удачи, будущий(ая) коллега!</h4>
+    <br>
+    <p>После выполнения тестовой задачи залить в репозиторий (github/gitlab/bitbucket), 
+        отправить ссылку, используя эту гугл форму:</p>
+    <a href="https://forms.gle/tKNTNNVhSk21pPuD7 ">https://forms.gle/tKNTNNVhSk21pPuD7 </a>
+
+{% endblock %}
